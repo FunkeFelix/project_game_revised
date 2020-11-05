@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    
+}
+html, body {
+    box-sizing: border-box;
+}
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-image: url("../pictures/try_background.jpg");
+    background-size: initial;
+    height: 80px;
+    align-items: center;
+
+}
+.points {
+
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    background-color: #ece91e;
+    
+    
+}
+#timer {
+
+    width: 200px;
+    height: 50px;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ece91e;
+}
+#shots {
+    width: 200px;
+    height: 50px;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ece91e;
+}
+
+#aside {
+    display: flex;
+    flex-direction: column;
+    background-image: url("../pictures/try_background.jpg");
+    background-size: cover;
+    height: 715px;
+}
+
+.describtion {
+    color: #eeea0c;
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+    background-color: rgb(39, 29, 7, 0.5);
+}
+
+.btn {
+    margin: 20px;
+    width: 100px;
+    height: 50px;
+    background-color: #ece91e;
+    color: black;
+    font-size: 17px;
+    border-radius: 20px;
+    
+ }
+.btn-jaeger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-diff {
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.active {
+    top: 5px;
+    box-shadow: 0 10px #aaa;
+    border: 2px solid red;
+  }
+
+.btn:hover {
+    background: ##DEA71F;
+    box-shadow: 0 5px #aaa;
+    color: #888;
+  }
+
+
+#gameField {
+    background-image: url("../pictures/background_revised.jpeg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 800px;
+    width: 1400px;
+    cursor: url('../pictures/cursor-crosshair-48.png'), auto;
+    border: #ece91e;
+    
+}
+.middle {
+    display: flex;
+}
+
+
+
+.moorhuhn  {
+    height: 150px;
+    width: 100px;
+    background-image: url("../pictures/kisspng-dead-man-s-hand-moorhuhn-the-settlers-7-paths-to-5b27e6e974bf02.6751377515293416734782.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+
+}
+
+.jaegermeister {
+    height: 150px;
+    width: 100px;
+    background-image: url("../pictures/Jagermeister-logo-AD19F1FDBB-seeklogo.com.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+}
+
+.target {
+    position: absolute;
+}

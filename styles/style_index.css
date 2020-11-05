@@ -1,0 +1,111 @@
+* {
+    background-origin: padding-box;
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+    font-family: Syne Mono;
+}
+
+body {
+    background-image: url("../pictures/left_try_background.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+   
+}
+
+.middleBox {
+    margin-top: 50px;
+    width: 800px;
+    background-color: #5d5c61;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.btn-box {
+    display: flex;
+}
+
+.describtion {
+    
+
+}
+
+.btn {
+    margin: 20px;
+    width: 100px;
+    height: 50px;
+    background-color: #ece91e;
+    color: black;
+    font-size: 17px;
+    border-radius: 20px;
+    font-family: sans-serif;
+    
+    
+ }
+
+ .btn-start {
+    margin: 20px;
+    width: 100px;
+    height: 50px;
+    background-color: #ece91e;
+    color: black;
+    font-size: 17px;
+    border-radius: 20px;
+    font-family: sans-serif;
+    width: 150px;
+ }
+
+ .btn-sep {
+     font-size: 30px;
+ }
+
+ .btn:hover {
+  
+ }
+ .text1 {
+    text-align: center;
+ }
+
+ h1 {
+     text-align: center;
+     font-size: 40px;
+ }
+
+ .info {
+     color: #ece91e;
+ }
+
+
+ #myProgress {
+    width: 100%;
+    background-color: grey;
+  }
+  
+  #myBar {
+    width: 10%;
+    height: 30px;
+    background-color: #ece91e;
+    text-align: center; 
+    line-height: 30px; 
+    color: black;
+  }
+
+  .jeager-img {
+      height: 100px;
+      width: auto;
+      margin-top: 400px;
+      margin-right: 50px;
+  }
+  .moorhuhn-img {
+      height: 100px;
+      width: auto;
+      margin-top: 400px;
+      margin-left: 50px;
+  }
