@@ -1,4 +1,4 @@
-document.getElementById("timer").innerHTML = 00 + ":" + 10;
+document.getElementById("timer").innerHTML = 00 + ":" + 30;
 startTimer();
 
 function startTimer() {
@@ -134,16 +134,16 @@ function getConfig() {
   let timeLeft;
 
   if (speedMode === "easy") {
-    speed = Math.max(3000 - iterations * 30, 1200);
+    speed = Math.max(3000 - iterations * 30, 1900);
     timeLeft = 1500;
   } else if (speedMode === "normal") {
-    speed = Math.max(1800 - iterations * 30, 1000);
+    speed = Math.max(1900 - iterations * 30, 1200);
     timeLeft = 1000;
   } else if (speedMode === "medium") {
-    speed = Math.max(1100 - iterations * 30, 700);
+    speed = Math.max(1500 - iterations * 30, 1000);
     timeLeft = 1000;
   } else if (speedMode === "insane") {
-    speed = Math.max(800 - iterations * 30, 500);
+    speed = Math.max(1200 - iterations * 30, 650);
     timeLeft = 800;
   }
 

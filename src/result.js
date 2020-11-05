@@ -1,11 +1,11 @@
 const points = localStorage.getItem("points");
+const shots = localStorage.getItem("shots");
 
 let pointsEl = document.querySelector(".points");
-let shots = document.querySelector(".shots");
+let shotsEl = document.querySelector(".shots");
 
 pointsEl.innerText = points;
-shots.innerText = localStorage.getItem("shots");
-console.log('localStorage.getItem("shots")', localStorage.getItem("shots"));
+shotsEl.innerText = shots;
 
 let punshLine = document.querySelector(".punshLine");
 
