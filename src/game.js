@@ -1,31 +1,31 @@
-// document.getElementById("timer").innerHTML = 00 + ":" + 31;
-// startTimer();
+document.getElementById("timer").innerHTML = 00 + ":" + 10;
+startTimer();
 
-// function startTimer() {
-//   let presentTime = document.getElementById("timer").innerHTML;
-//   let timeArray = presentTime.split(/[:]+/);
-//   let m = timeArray[0];
-//   let s = checkSecond(timeArray[1] - 1);
-//   if (s == 59) {
-//     m = m - 1;
-//   }
-//   if (m < 0) {
-//     moveResult();
-//   }
+function startTimer() {
+  let presentTime = document.getElementById("timer").innerHTML;
+  let timeArray = presentTime.split(/[:]+/);
+  let m = timeArray[0];
+  let s = checkSecond(timeArray[1] - 1);
+  if (s == 59) {
+    m = m - 1;
+  }
+  if (m < 0) {
+    moveResult();
+  }
 
-//   document.getElementById("timer").innerHTML = m + ":" + s;
-//   setTimeout(startTimer, 1000);
-// }
+  document.getElementById("timer").innerHTML = m + ":" + s;
+  setTimeout(startTimer, 1000);
+}
 
-// function checkSecond(sec) {
-//   if (sec < 10 && sec >= 0) {
-//     sec = "0" + sec;
-//   }
-//   if (sec < 0) {
-//     sec = "59";
-//   }
-//   return sec;
-// }
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {
+    sec = "0" + sec;
+  }
+  if (sec < 0) {
+    sec = "59";
+  }
+  return sec;
+}
 function playSound() {
   let sounds = new Audio();
   sounds.src = "../Sounds/10 Guage Shotgun-SoundBible.com-74120584.wav";
@@ -38,10 +38,7 @@ window.addEventListener("click", function () {
 
 let points = 0;
 let shots = 0;
-let jaegerRatio = 0.8;
 let iterations = 0;
-let timeLeft = 1500;
-let speed = 1000;
 
 let speedMode = "normal"; // easy|normal|fast|insane
 let jaegerMode = "driver";
@@ -90,19 +87,19 @@ btnHard.addEventListener("click", function () {
 });
 
 btnDriver.addEventListener("click", function () {
-  speedMode = "easy";
+  jaegerMode = "driver";
   allBtnsJaeg.forEach((btn) => btn.classList.remove("active"));
   btnDriver.classList.add("active");
 });
 
 btnBartender.addEventListener("click", function () {
-  speedMode = "medium";
+  jaegerMode = "bartender";
   allBtnsJaeg.forEach((btn) => btn.classList.remove("active"));
   btnBartender.classList.add("active");
 });
 
 btnAlcoholic.addEventListener("click", function () {
-  speedMode = "insane";
+  jaegerMode = "alcoholic";
   allBtnsJaeg.forEach((btn) => btn.classList.remove("active"));
   btnAlcoholic.classList.add("active");
 });
@@ -113,9 +110,7 @@ function addElement() {
   const newElement = document.createElement("div");
   newElement.classList.add("target");
   iterations += 1;
-  console.log(speed, timeLeft);
-
-  const isJaeger = Math.random() > jaegerRatio;
+  const isJaeger = Math.random() > getJaeger();
 
   if (isJaeger) {
     newElement.classList.add("jaegermeister");
@@ -135,23 +130,31 @@ function addElement() {
 }
 
 function getConfig() {
-  if (speedMode === "easy") return { speed: 2000, timeLeft: 1500 };
-  else if (speedMode === "normal") return { speed: 1800, timeLeft: 1000 };
-  else if (speedMode === "medium") return { speed: 1100, timeLeft: 1000 };
-  else if (speedMode === "insane") return { speed: 800, timeLeft: 800 };
+  let speed;
+  let timeLeft;
+
+  if (speedMode === "easy") {
+    speed = Math.max(3000 - iterations * 30, 1200);
+    timeLeft = 1500;
+  } else if (speedMode === "normal") {
+    speed = Math.max(1800 - iterations * 30, 1000);
+    timeLeft = 1000;
+  } else if (speedMode === "medium") {
+    speed = Math.max(1100 - iterations * 30, 700);
+    timeLeft = 1000;
+  } else if (speedMode === "insane") {
+    speed = Math.max(800 - iterations * 30, 500);
+    timeLeft = 800;
+  }
+
+  return { speed: speed, timeLeft: timeLeft };
 }
 
 function getJaeger() {
-  if (jaegerMode === "driver") return { jaegerRatio: 0.8 };
-  else if (jaegerMode === "bartender") return { jaegerRatio: 0.5 };
-  else if (jaegerMode === "alcoholic") return { jaegerRatio: 0.2 };
+  if (jaegerMode === "driver") return 0.8;
+  else if (jaegerMode === "bartender") return 0.5;
+  else if (jaegerMode === "alcoholic") return 0.2;
 }
-// function interation(iterstions) {
-//   if (iterations % 10 === 0) {
-//     speed += 100;
-//     console.log(speed);
-//   }
-// }
 
 function randomNumber(x) {
   return Math.floor(Math.random() * (x - 10) + 10);
@@ -173,7 +176,7 @@ function handleCleanup(element) {
       "body > div.heading > section.points > span"
     ).innerText = points;
     document.querySelector("#shots > span").innerText = shots;
-  }, 10);
+  }, 100);
 
   setTimeout(function () {
     if (!removed && element.classList.contains("moorhuhn")) {
@@ -186,7 +189,9 @@ function handleCleanup(element) {
 }
 
 function moveResult() {
-  window.location = "../result.html";
+  localStorage.setItem("shots", shots);
+  localStorage.setItem("points", points);
+  window.location = "/result.html";
 }
 
 addElement();
