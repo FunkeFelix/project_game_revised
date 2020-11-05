@@ -191,7 +191,7 @@ function handleCleanup(element) {
 function moveResult() {
   localStorage.setItem("shots", shots);
   localStorage.setItem("points", points);
-  window.location = "/result.html";
+  window.location = "../result.html";
 }
 
 addElement();
