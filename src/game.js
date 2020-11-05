@@ -28,7 +28,7 @@ function checkSecond(sec) {
 }
 function playSound() {
   let sounds = new Audio();
-  sounds.src = "../Sounds/10 Guage Shotgun-SoundBible.com-74120584.wav";
+  sounds.src = "/Sounds/shotgun.wav";
   sounds.play();
 }
 
@@ -191,7 +191,7 @@ function handleCleanup(element) {
 function moveResult() {
   localStorage.setItem("shots", shots);
   localStorage.setItem("points", points);
-  window.location = "../result.html";
+  window.location.href = "/result.html";
 }
 
 addElement();
